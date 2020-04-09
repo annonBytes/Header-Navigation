@@ -14,6 +14,7 @@ nav p{
   text-transform: uppercase;
   font-weight: bold;
   margin: 5px;
+  color: #f79320;
 }
 
 nav{
@@ -27,6 +28,7 @@ nav{
   flex-wrap: wrap;
 }
 
+
 .burger{
   border: 0;
   font-size: 24px;
@@ -34,7 +36,35 @@ nav{
   outline:none;
   padding: 0;
   cursor: pointer;
+  position:relative;
+  height: 30px;
+  width: 30px
 }
+
+.burger:active{
+  outline: none;
+  color: #0594EC;
+
+}
+
+  .burger .bar {
+  width: 30px;
+  height: 3px;
+  background-color: #f79320;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.burger .bar:first-of-type {
+	top: 40%;
+}
+
+.burger .bar:last-of-type {
+	top: 60%;
+}
+
 
 
 ul{
@@ -76,21 +106,38 @@ ul li a:hover::after{
 
 
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 480px){
   
   .burger{
-    display: inline-block;
+    display: block;
   }
+
+  .burger.show-burg .bar:first-of-type {
+  transform: translate(-50%, 50%) rotate(225deg);
+  }
+
+  .burger.show-burg .bar:last-of-type {
+  transform: translate(-50%, -150%) rotate(-225deg);
+  }
+  
+
   
   ul{
     flex-direction: column;
     text-align: center;
-    width:100%;
-    display:none;
+    width: 80%;
+    position: fixed;
+    background-color: #fff;
+    top: 80px;
+    left: 10%;
+    transform: translateX(150%);
+    transition: transform 0.3s ease ease-in;
+    box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.1)
   }
   
   ul.show{
-display: flex;
+  display: flex;
+  transform: translateX(0);
   }
   
   ul li{

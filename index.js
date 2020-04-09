@@ -6,6 +6,7 @@ const ul = document.querySelector('nav ul');
 
 burger.addEventListener('click', () => {
 
+burger.classList.toggle('show-burg');
 ul.classList.toggle('show');
   
 });
