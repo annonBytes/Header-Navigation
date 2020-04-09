@@ -9,6 +9,41 @@ body{
  color:#2C405E;
 }
 
+header{
+  color:#fff;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+ min-height: calc(100vh - 63px);	
+  background-image: url('https://images.unsplash.com/photo-1566837945700-30057527ade0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+
+}
+
+header *{
+  z-index: 1;
+}
+
+header::after{
+  content: '';
+  position: absolute;
+  background-color: #000;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+header h1{
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  width: 60%;
+}
+
 nav p{
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -107,6 +142,10 @@ ul li a:hover::after{
 
 
 @media screen and (max-width: 480px){
+
+  header h1{
+    font-size: 2.5em;
+  }
   
   .burger{
     display: block;
@@ -120,7 +159,6 @@ ul li a:hover::after{
   transform: translate(-50%, -150%) rotate(-225deg);
   }
   
-
   
   ul{
     flex-direction: column;
@@ -132,7 +170,8 @@ ul li a:hover::after{
     left: 10%;
     transform: translateX(150%);
     transition: transform 0.3s ease ease-in;
-    box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.1)
+    box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.1);
+    z-index: 100;
   }
   
   ul.show{
